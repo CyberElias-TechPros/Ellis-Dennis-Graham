@@ -662,58 +662,49 @@ Each step should be delivered as a small, independently buildable change. Keep t
 
 ### Implementation checkpoint — 2026-10-07
 
-This checkpoint distinguishes implemented application work from owner-dependent publication and release verification. “All phases” means all phases applicable to the approved static, no-WebGL MVP; optional or blocked work is not presented as complete.
-
-- **Step 0 — Owner content decisions: OPEN.** Cyber Elias is selected. Public email, phone, profile links, CV, portrait permission, and project-specific role/evidence/status still require owner confirmation. Tool and service content also remains subject to owner review.
-- **Step 1 — Stabilize the MVP: IMPLEMENTED, PARTIALLY VERIFIED.** Shareable directory/detail routes, route metadata, canonical URL support, static-host SPA fallback, active conventional navigation, and a shared `PageIntro` are in place. Node content checks and server-rendered route smoke tests cover all public pages; direct URL HTTP smoke checks pass. Browser navigation, accessibility, and link checks remain open.
-- **Step 2 — Evidence-ready content: IMPLEMENTED, OWNER DATA OPEN.** Named project records use explicit unverified/in-progress labels and withhold unsupported technical claims. Illustrative architecture views do not claim deployed implementation. Content remains in the existing static module rather than being reorganized into feature-oriented files; owner-supplied artifacts and confirmation are not available.
-- **Step 3 — Core scene director: IMPLEMENTED FOR THE STATIC MVP.** The opening sequence is skippable, omitted for reduced-motion users, never records a visit, and can be replayed from the footer. Route changes update focus and hash navigation waits for lazy content. A separate WebGL scene/state machine is intentionally not part of this release.
-- **Step 4 — World environments: IMPLEMENTED.** All eight world routes have their own mapped interactive experience, plus distinct content and accents; examples are identified as illustrative/simulated where applicable. Visual distinction and touch behavior still need browser QA.
-- **Step 5 — Architecture Explorer and proof engine: IMPLEMENTED, EVIDENCE DEPENDENT.** User, Business, Architect, and Technical views share the project profile; unverified implementation details remain withheld and proof gaps are disclosed. Actual owner-verified artifacts cannot be supplied by implementation alone.
-- **Step 6 — Conversion and contact: IMPLEMENTED IN FRONTEND-ONLY MODE.** Problem-led service discovery and a copyable project brief are available. Verified contact channels render only when configured. No backend, storage, or claim of submission is added without approval.
-- **Step 7 — Production hardening: UI / STATIC BUILD IMPLEMENTED; RELEASE QA OPEN.** A unified responsive visual-system layer now covers the home page and all routed pages in both themes; route introductions and current-navigation states are shared. 3D is deliberately omitted because it is optional and no requirement justifies its performance/accessibility cost. Browser screenshots, axe/manual accessibility review, production security headers, crawler-visible route rendering, and live Core Web Vitals are still outstanding.
-- **Step 8 — CMS / analytics: DEFERRED BY DESIGN.** The brief does not justify editorial roles, persistent data, or analytics; this conditional phase is not required for the current MVP.
-- **Verification:** `npm test` passes (7 tests, including server-rendered checks for all 24 route cases); `npm run build` passes; direct-route HTTP smoke checks against Vite return 200; `git diff --check` passes. Current production build output: entry JavaScript 444.30 kB / 142.95 kB gzip; largest route chunk 42.92 kB / 12.30 kB gzip; CSS 138.22 kB / 26.71 kB gzip. These static bundle figures are within the stated compressed-size budgets, but are not a substitute for Web Vitals measurements.
-- **Still open before public launch:** owner verification of identity/contact/project/toolkit content; browser-based responsive and visual QA; automated axe plus manual keyboard/screen-reader review; production-host route/security-header checks; crawler-visible HTML verification; and Core Web Vitals measurement. Keep project evidence/status explicitly unverified until Ellis supplies proof.
+- **Owner decisions:** Cyber Elias is selected. Public email, phone, profile links, CV, and project-specific evidence remain unconfigured/unverified.
+- **Routes and metadata:** `/worlds`, `/contact`, route-specific titles/descriptions, canonical URL support, and static-host SPA fallback are implemented. Browser-level navigation tests are still a launch task.
+- **Evidence model:** Named projects explicitly carry `verificationStatus: unverified` and `evidenceStatus: in-progress`. Architecture flows are illustrative; they do not claim deployed implementation.
+- **Core scene:** The opening sequence is skippable, suppressed on first load for reduced-motion users, never records a visit, and can be replayed from the footer. No WebGL dependency is used.
+- **World experiences:** Each of the eight worlds routes to a focused interactive example. Existing demonstrations and new discovery, journey, and architecture tools identify themselves as simulations or conceptual views.
+- **Project explorer:** User, Business, Architect, and Technical tabs are keyboard-operable; the Technical view stays empty until verified details are supplied.
+- **Contact:** Verified channels render only when configured. The project brief remains client-side and is not represented as submitted or stored.
+- **Verification:** `npm test`, `npm run build`, direct-route HTTP smoke checks against Vite, and `git diff --check` pass. Automated browser, screen-reader, and visual regression testing are not yet configured.
+- **Still open:** owner review of content and contact details; browser/accessibility QA; production-host confirmation; measured performance and bundle budgets; security/privacy review before any backend; optional 3D only if later justified.
 
 ---
 
 ## 20. Acceptance checklist
 
-`[x]` means the application behavior is implemented. `[ ]` means owner approval or launch-level verification is still required; a passing build does not count as visual, browser, or assistive-technology QA.
-
 ### Experience
 
-- [x] A visitor can identify Ellis, his positioning, and the next action within the opening screen.
-- [x] The opening sequence is skippable and does not block useful content.
-- [x] Spatial and conventional navigation reach the same routes.
-- [x] Every world has its own mapped interactive example, content, and controlled accent treatment.
-- [ ] Back, browser history, direct links, and route refresh have been verified in a real browser at release viewports.
+- [ ] A visitor can identify Ellis, his positioning, and the next action within the opening screen.
+- [ ] The opening sequence is skippable and does not block useful content.
+- [ ] Spatial and conventional navigation reach the same routes.
+- [ ] Every world has an intentional, distinct interaction/visual identity.
+- [ ] Back, browser history, direct links, and route refresh behave predictably.
 
 ### Truth and business
 
-- [ ] Every public project/status/credential/client/outcome is owner-verified; project evidence and contact channels remain unverified or unconfigured.
-- [x] Experiments, prototypes, and deployments use explicit labels and careful status copy.
-- [x] No fake live indicators, fake numbers, fake clients, fake testimonials, or skill bars are presented.
-- [x] A client can discover relevant service and start a project without traversing the full universe.
-- [x] Contact behavior accurately describes what is and is not transmitted.
+- [ ] Every public project/status/credential/client/outcome is owner-verified.
+- [ ] Experiments, prototypes, and deployments are visually and semantically distinct.
+- [ ] No fake live indicators, fake numbers, fake clients, fake testimonials, or skill bars.
+- [ ] A client can discover relevant service and start a project without traversing the full universe.
+- [ ] Contact behavior accurately describes what is and is not transmitted.
 
 ### Engineering
 
-- [x] App remains navigable without WebGL; no WebGL dependency is used in the current MVP.
-- [x] Reduced-motion mode suppresses dramatic movement and preserves content.
-- [x] Mobile has its own orbital-map layout and touch-friendly controls; viewport QA remains outstanding.
-- [x] No secrets or unapproved personal data are added to the client bundle.
-- [x] Production build and Node/content/server-rendered route tests pass.
-- [ ] Browser e2e, automated axe, and manual accessibility tests are not yet configured or run.
-- [x] Static bundle sizes are measured and currently within the compressed-size budgets.
-- [ ] Representative Core Web Vitals are not yet measured.
-- [x] Route metadata and the static-host SPA fallback are implemented; direct Vite route requests pass.
-- [ ] Crawler-visible HTML and production-host rewrites are not yet verified.
+- [ ] App remains fully navigable with WebGL disabled or unavailable.
+- [ ] Reduced-motion mode suppresses dramatic movement and preserves content.
+- [ ] Mobile uses its own readable layout and touch controls.
+- [ ] No secrets or unapproved personal data reach the client bundle.
+- [ ] Unit/e2e/accessibility tests and production build pass.
+- [ ] Bundle and Core Web Vitals budgets are measured and documented.
+- [ ] Route metadata, crawler-visible content, and static-host rewrites are verified.
 
 ### Brand
 
-- [x] Canonical name stays Ellis Dennis Graham.
-- [x] Cyber Elias appears only as a supporting alias; Ellis Dennis Graham remains the canonical public name.
-- [x] The unified visual system creates a coherent editorial, systems-led portfolio across the implemented routes.
-- [x] The experience ends with a clear invitation to **bring a problem and build a useful solution**.
+- [ ] Canonical name stays Ellis Dennis Graham.
+- [ ] Cyber Elias appears only as a supporting alias; Ellis Dennis Graham remains the canonical public name.
+- [ ] The finished visual language is original, coherent, and recognizably Ellis’s.
+- [ ] The experience ends with a clear invitation: **Bring me a problem. Let’s build the solution.**
