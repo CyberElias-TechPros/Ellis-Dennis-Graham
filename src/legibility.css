@@ -1,0 +1,30 @@
+/* Mobile reading sizes: preserve the visual labels while keeping real content comfortable to read. */
+@media (max-width: 640px) {
+  .hero-summary,
+  .section-heading > p,
+  .route-intro > p,
+  .world-detail-description,
+  .project-detail-description,
+  .about-bridge p,
+  .things-learning > p,
+  .intake-intro > p { font-size: 12px; }
+  .world-card p,
+  .project-card-copy p,
+  .incident-brief > p,
+  .forge-inspector p,
+  .evidence-lead,
+  .project-detail-card p,
+  .value-card p,
+  .service-route-card p,
+  .archive-lens-card p { font-size: 11px; }
+  .offer-row p,
+  .capability-item strong,
+  .lab-experience-heading p,
+  .lesson-card ol,
+  .arsenal-group-copy p { font-size: 11px; }
+  .incident-option > span { font-size: 10px; }
+  .intake-form select,
+  .intake-form input,
+  .intake-form textarea { font-size: 12px; }
+  .data-chart-caption p { font-size: 10px; }
+}
