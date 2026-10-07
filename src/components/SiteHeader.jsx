@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Icon } from './Icons.jsx';
 import { siteConfig } from '../siteConfig.js';
@@ -31,7 +31,7 @@ export default function SiteHeader({ mode, onToggleMode }) {
         </Link>
 
         <nav className="desktop-nav" aria-label="Main navigation">
-          {links.map((item) => <Link key={item.label} to={item.to}>{item.label}</Link>)}
+          {links.map((item) => <NavLink key={item.label} to={item.to} end={item.to === '/worlds' || item.to === '/projects' ? false : undefined}>{item.label}</NavLink>)}
         </nav>
 
         <div className="header-actions">
@@ -56,7 +56,7 @@ export default function SiteHeader({ mode, onToggleMode }) {
       <AnimatePresence>
         {menuOpen && (
           <motion.nav id="mobile-navigation" className="mobile-menu" aria-label="Mobile navigation" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} onKeyDown={(event) => { if (event.key === 'Escape') { close(); menuToggleRef.current?.focus(); } }}>
-            {links.map((item, index) => <Link key={item.label} ref={index === 0 ? firstMenuLinkRef : undefined} to={item.to} onClick={close}>{item.label}<Icon name="ArrowUpRight" size={15} /></Link>)}
+            {links.map((item, index) => <NavLink key={item.label} ref={index === 0 ? firstMenuLinkRef : undefined} to={item.to} onClick={close}>{item.label}<Icon name="ArrowUpRight" size={15} /></NavLink>)}
             <Link to="/about" onClick={close}>Meet Ellis<Icon name="ArrowUpRight" size={15} /></Link>
             <Link to="/arsenal" onClick={close}>Technology Arsenal<Icon name="ArrowUpRight" size={15} /></Link>
             <Link to="/contact" onClick={close}>Contact<Icon name="ArrowUpRight" size={15} /></Link>

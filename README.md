@@ -28,6 +28,7 @@ npm run preview
 ## What is implemented
 
 - An animated orbital map with Ellis at the core and eight linked capability worlds, plus a conventional, shareable `/worlds` directory.
+- A shared editorial design system across all routes: consistent page introductions, typography, surfaces, hierarchy, focus states, and light/dark treatment, with dedicated mobile layouts.
 - Eight responsive world pages, each with capabilities, service directions, proof guidance, relevant tools, an interactive system view, and a project pathway.
 - A skippable opening sequence that respects reduced-motion preferences, does not persist a visit, and can be replayed from the footer.
 - Project profiles for TechPros, Cyber Elias Academy, CyberShop, and FreeGameplay. They are visibly marked **Profile in progress** until exact role, implementation status, live URLs, and outcomes are confirmed.
@@ -59,9 +60,10 @@ The values above are placeholders: replace them only with owner-approved public 
 - `src/siteConfig.js` — environment-backed public contact/profile configuration.
 - `src/pages/DetailPages.jsx` — world, project, lab, archive, service, and intake route views.
 - `src/pages/DirectoryPages.jsx` — the worlds directory and configuration-backed contact page.
+- `src/components/PageIntro.jsx` and `src/visual-system.css` — reusable route framing and the shared cross-site visual system.
 - `src/components/ArchitectureExplorer.jsx` — four-lens, evidence-conscious project system view.
 - `src/components/WorldExperiences.jsx` and `src/components/LabExperiences.jsx` — interactive world and Lab demonstrations.
-- `tests/content.test.js` — built-in Node tests for world/project records, routes, contact configuration, and intro controls.
+- `tests/content.test.js` and `tests/pages-render.test.js` — built-in Node tests for world/project records, routes, contact configuration, intro controls, and server-rendered route landmarks.
 - `public/_redirects` — SPA fallback for supported static hosts.
 - `docs/PRODUCT_BLUEPRINT.md` — full product and application specification, roadmap, and launch gates.
 
