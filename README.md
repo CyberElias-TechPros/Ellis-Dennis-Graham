@@ -30,7 +30,7 @@ npm run preview
 - An animated orbital map with Ellis at the core and eight linked capability worlds, plus a conventional, shareable `/worlds` directory.
 - Eight responsive world pages, each with capabilities, service directions, proof guidance, relevant tools, an interactive system view, and a project pathway.
 - A skippable five-beat opening—Void → First Light → Identity → Ignition → Universe—with reduced-motion support, navigable world symbols and conventional links at readiness, no visit tracking, and footer replay.
-- A Phase 1 “Celestial Observatory” foundation: indigo space, warm stellar light, restrained nebula accents, editorial typography, shared component tokens, and a distinct pearl-dawn Ascension theme. Later page art direction is paused for owner review.
+- A Phase 1 “Celestial Observatory” foundation: indigo space, warm stellar light, restrained nebula accents, a sacred-geometry sun sigil, planetary world glyphs, editorial typography, shared tokens, and a distinct pearl-dawn Ascension theme. Later page art direction is paused for owner review.
 - Project profiles for TechPros, Cyber Elias Academy, CyberShop, and FreeGameplay. They are visibly marked **Profile in progress** until exact role, implementation status, live URLs, and outcomes are confirmed.
 - Interactive demonstrations: Network Forge, a multi-step incident-response War Room, workflow automation examples, a teaching micro-lesson, an illustrative data chart, a business discovery diagnostic, customer journey map, and conceptual software architecture view.
 - Four-lens Project Architecture Explorer (User, Business, Architect, Technical) with unverified implementation details explicitly withheld.

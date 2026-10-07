@@ -81,7 +81,17 @@ export default function IntroExperience({ onEnter }) {
         <span className="intro-nebula intro-nebula--two" />
         <span className="intro-orbit intro-orbit--one" />
         <span className="intro-orbit intro-orbit--two" />
-        <span className="intro-core"><i /><i /><i /></span>
+        <span className="intro-core">
+          <svg className="intro-sigil" viewBox="0 0 120 120" focusable="false" aria-hidden="true">
+            <circle cx="60" cy="60" r="51" />
+            <circle cx="60" cy="60" r="36" />
+            <path d="M60 7 70 48 113 60 70 72 60 113 50 72 7 60 50 48Z" />
+            <path d="m60 20 40 40-40 40-40-40Z" />
+            <path d="m60 37 23 23-23 23-23-23Z" />
+            <circle className="intro-sigil-heart" cx="60" cy="60" r="4" />
+          </svg>
+          <i /><i /><i />
+        </span>
         <span className="intro-first-light" />
         <span className="intro-spark intro-spark--one" /><span className="intro-spark intro-spark--two" /><span className="intro-spark intro-spark--three" />
       </div>

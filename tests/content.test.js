@@ -61,8 +61,10 @@ test('the opening presents the five-beat sequence and navigable worlds before en
     assert.ok(intro.includes(`'${phase}'`), `the intro timeline includes ${phase}`);
     assert.ok(design.includes(`intro-experience--${phase}`), `the design system styles ${phase}`);
   }
+  assert.match(intro, /className="intro-sigil"/);
   assert.match(intro, /className="intro-worlds"/);
   assert.match(intro, /className="intro-quick-nav"/);
+  assert.match(design, /observatory-sigil-turn/);
   assert.match(intro, /Enter the universe/);
 });
 
