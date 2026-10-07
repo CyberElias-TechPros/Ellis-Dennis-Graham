@@ -662,15 +662,16 @@ Each step should be delivered as a small, independently buildable change. Keep t
 
 ### Implementation checkpoint — 2026-10-07
 
-- **Owner decisions:** Cyber Elias is selected. Public email, phone, profile links, CV, and project-specific evidence remain unconfigured/unverified.
-- **Routes and metadata:** `/worlds`, `/contact`, route-specific titles/descriptions, canonical URL support, and static-host SPA fallback are implemented. Browser-level navigation tests are still a launch task.
-- **Evidence model:** Named projects explicitly carry `verificationStatus: unverified` and `evidenceStatus: in-progress`. Architecture flows are illustrative; they do not claim deployed implementation.
-- **Core scene:** The opening sequence is skippable, suppressed on first load for reduced-motion users, never records a visit, and can be replayed from the footer. No WebGL dependency is used.
-- **World experiences:** Each of the eight worlds routes to a focused interactive example. Existing demonstrations and new discovery, journey, and architecture tools identify themselves as simulations or conceptual views.
-- **Project explorer:** User, Business, Architect, and Technical tabs are keyboard-operable; the Technical view stays empty until verified details are supplied.
-- **Contact:** Verified channels render only when configured. The project brief remains client-side and is not represented as submitted or stored.
-- **Verification:** `npm test`, `npm run build`, direct-route HTTP smoke checks against Vite, and `git diff --check` pass. Automated browser, screen-reader, and visual regression testing are not yet configured.
-- **Still open:** owner review of content and contact details; browser/accessibility QA; production-host confirmation; measured performance and bundle budgets; security/privacy review before any backend; optional 3D only if later justified.
+**Design trial status:** The previous full-site styling experiment was reverted after owner feedback. The repository’s original page compositions are restored. This iteration implements only the Phase 1 foundation and a Phase 2 opening-sequence prototype; later world/page redesigns are paused until the owner confirms the direction.
+
+- **Proposed visual language — “Celestial Observatory”:** deep-space indigo, a warm stellar-gold core, restrained nebula violet and stellar-blue atmosphere, premium Manrope / DM Sans typography with sparing DM Mono labels, deliberate whitespace, and solid, quiet surfaces rather than glass/HUD decoration. Ascension is treated as pearl dawn with its own warm light, not a color inversion. Motion is sparse and tied to the five-beat opening.
+- **Phase 1 — Foundation: IMPLEMENTED AS A REVIEWABLE BASE.** `src/design-system.css` introduces shared color, type, spacing, surface, theme, control, focus, and motion tokens plus restrained global treatments. Existing route layouts remain otherwise unchanged while this design language awaits approval.
+- **Phase 2 — Opening sequence: IMPLEMENTED AS A PROTOTYPE.** The intro now progresses through Void → First Light → Identity → Ignition → Universe. Skip/Escape remain available, reduced-motion users go directly to the ready state, and the final state reveals eight navigable world symbols, conventional quick links, and an Enter the Universe action. No visit is stored and no WebGL or sound dependency is added.
+- **Phase 3 onward: PAUSED FOR DESIGN APPROVAL.** Existing pages and interactive experiences remain available on the restored original design; no new world art direction, proof-engine expansion, business features, Archive timeline, or production integrations are attempted in this review iteration.
+- **Owner-dependent content:** Cyber Elias is selected. Public email, phone, profile links, CV, portrait permission, and project-specific evidence remain unconfigured/unverified. No proof, live status, or results are invented.
+- **Verification:** `npm test` passes (8 tests, including server-rendered landmark/heading checks for all 24 route cases); `npm run build` passes; `git diff --check` passes. Real-browser screenshots, responsive visual QA, axe/manual screen-reader review, production-host checks, and Core Web Vitals have not been completed.
+- **Current build sizes:** entry JavaScript 445.65 kB / 143.39 kB gzip; largest route chunk 43.59 kB / 12.27 kB gzip; CSS 96.03 kB / 19.47 kB gzip.
+- **Next decision:** approve this direction or request refinements before proceeding to Phase 3. Keep owner verification and launch QA separate from design approval.
 
 ---
 

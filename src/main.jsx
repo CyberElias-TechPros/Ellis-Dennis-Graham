@@ -7,6 +7,7 @@ import './sections.css';
 import './responsive.css';
 import './legibility.css';
 import './experience.css';
+import './design-system.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

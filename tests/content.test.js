@@ -48,10 +48,22 @@ test('the cinematic opening can be skipped and replayed without storing a visit'
   const app = await readFile(new URL('../src/App.jsx', import.meta.url), 'utf8');
   const intro = await readFile(new URL('../src/components/IntroExperience.jsx', import.meta.url), 'utf8');
   const footer = await readFile(new URL('../src/components/Footer.jsx', import.meta.url), 'utf8');
-  assert.match(intro, /Skip intro/);
+  assert.match(intro, /Skip sequence/);
   assert.match(intro, /event\.key === 'Escape'/);
   assert.match(footer, /Replay the opening/);
   assert.doesNotMatch(app, /edg-intro-seen/);
+});
+
+test('the opening presents the five-beat sequence and navigable worlds before entry', async () => {
+  const intro = await readFile(new URL('../src/components/IntroExperience.jsx', import.meta.url), 'utf8');
+  const design = await readFile(new URL('../src/design-system.css', import.meta.url), 'utf8');
+  for (const phase of ['void', 'first-light', 'identity', 'ignition', 'ready']) {
+    assert.ok(intro.includes(`'${phase}'`), `the intro timeline includes ${phase}`);
+    assert.ok(design.includes(`intro-experience--${phase}`), `the design system styles ${phase}`);
+  }
+  assert.match(intro, /className="intro-worlds"/);
+  assert.match(intro, /className="intro-quick-nav"/);
+  assert.match(intro, /Enter the universe/);
 });
 
 test('contact details are opt-in public configuration rather than invented defaults', async () => {
