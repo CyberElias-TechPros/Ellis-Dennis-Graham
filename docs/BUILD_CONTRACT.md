@@ -671,7 +671,7 @@ Each step should be delivered as a small, independently buildable change. Keep t
 - **Scope held:** no rework to the proof engine, business features, Archive, contact integration, or named-project claims. Existing evidence disclaimers remain in place.
 - **Owner-dependent content:** Cyber Elias is selected. Public email, phone, profile links, CV, portrait permission, and project-specific evidence remain unconfigured/unverified. No proof, live status, or outcomes are invented.
 - **Verification:** `npm test` passes (9 test groups, including semantic server-render checks across all 24 route cases); `npm run build` passes; `git diff --check` passes. Real-browser screenshots, responsive visual QA, axe/manual screen-reader review, production-host checks, and Core Web Vitals remain outstanding.
-- **Current build sizes:** entry JavaScript 446.25 kB / 143.59 kB gzip; largest route chunk 51.54 kB / 14.77 kB gzip; CSS 114.21 kB / 22.75 kB gzip.
+- **Current build sizes:** entry JavaScript 446.25 kB / 143.59 kB gzip; largest route chunk 51.54 kB / 14.78 kB gzip; CSS 114.21 kB / 22.75 kB gzip.
 - **Next checkpoint:** review the eight Worlds as a distinct phase. Do not treat this approval as authorization to rework later project-proof or business phases. Keep owner verification and launch QA separate from design approval.
 
 ---
