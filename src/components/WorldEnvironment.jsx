@@ -123,17 +123,18 @@ const scenes = {
 export default function WorldEnvironment({ world }) {
   const environment = scenes[world.environment] ? world.environment : 'fortress';
   const Scene = scenes[environment];
+  const glowId = `world-environment-glow-${world.slug}`;
   return (
     <div className={`world-environment world-environment--${environment}`} aria-hidden="true">
       <svg className="world-environment-art" viewBox="0 0 480 360" focusable="false">
         <defs>
-          <radialGradient id="world-environment-glow">
+          <radialGradient id={glowId}>
             <stop offset="0%" stopColor="currentColor" stopOpacity=".16" />
             <stop offset="65%" stopColor="currentColor" stopOpacity=".035" />
             <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
           </radialGradient>
         </defs>
-        <circle className="environment-wash" cx="240" cy="180" r="168" fill="url(#world-environment-glow)" />
+        <circle className="environment-wash" cx="240" cy="180" r="168" fill={`url(#${glowId})`} />
         <Scene />
       </svg>
       <span className="world-environment-core"><Icon name={world.icon} size={27} strokeWidth={1.45} /></span>
