@@ -5,7 +5,7 @@ import AmbientStars from './components/AmbientStars.jsx';
 import IntroExperience from './components/IntroExperience.jsx';
 import SiteHeader from './components/SiteHeader.jsx';
 import Footer from './components/Footer.jsx';
-import { projects, worlds } from './content.js';
+import { metadataFor } from './routeMetadata.js';
 import { siteConfig } from './siteConfig.js';
 
 const HomePage = lazy(() => import('./pages/HomePage.jsx'));
@@ -47,10 +47,6 @@ function shouldShowIntro(pathname) {
   return pathname === '/' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
-function routeSlug(pathname) {
-  try { return decodeURIComponent(pathname.split('/').at(-1) || ''); } catch { return ''; }
-}
-
 function routeElement(pathname) {
   return [...document.querySelectorAll('#main-content [data-route-path]')].find((element) => element.dataset.routePath === pathname) || null;
 }
@@ -75,25 +71,6 @@ function setMeta(selector, attribute, value) {
     document.head.appendChild(element);
   }
   element.setAttribute(attribute, value);
-}
-
-function metadataFor(pathname) {
-  if (pathname === '/') return { title: 'Ellis Dennis Graham — Digital Universe', description: 'Enter the digital universe of Ellis Dennis Graham: infrastructure, cybersecurity, software, automation, education, and systems thinking.' };
-  if (pathname === '/worlds') return { title: 'Explore the Worlds — Cyber Elias', description: 'Explore eight connected technology worlds: cybersecurity, infrastructure, software, automation, digital business, education, data, and digital presence.' };
-  if (pathname === '/projects') return { title: 'Project Constellation — Cyber Elias', description: 'Explore transparent project profiles, architecture perspectives, and evidence from the Ellis Dennis Graham portfolio.' };
-  if (pathname === '/services') return { title: 'Technology Services — Cyber Elias', description: 'Explore problem-led technology services across infrastructure, cybersecurity, software, automation, education, data, and digital presence.' };
-  if (pathname === '/about') return { title: 'About Ellis — Cyber Elias', description: 'Meet Ellis Dennis Graham, known as Cyber Elias: a systems-first technology architect focused on building, securing, connecting, automating, and teaching digital systems.' };
-  if (pathname === '/contact') return { title: 'Contact Ellis — Cyber Elias', description: 'Start a conversation with Ellis Dennis Graham about a technology problem, service, project, or training opportunity.' };
-  if (pathname === '/start-a-project') return { title: 'Start a Project — Cyber Elias', description: 'Describe the challenge you are trying to solve and prepare a structured project brief for Ellis Dennis Graham.' };
-  if (pathname === '/lab') return { title: 'The Lab — Cyber Elias', description: 'Explore interactive demonstrations in networking, incident response, automation, teaching, and data.' };
-  if (pathname === '/war-room') return { title: 'The War Room — Cyber Elias', description: 'Work through a fictional incident-response scenario by following the evidence and verifying recovery.' };
-  if (pathname === '/archive') return { title: 'The Archive — Cyber Elias', description: 'Explore the evidence framework, professional record, and systems-thinking journey behind the Ellis Dennis Graham portfolio.' };
-  if (pathname === '/arsenal') return { title: 'Technology Arsenal — Cyber Elias', description: 'Explore the technologies, frameworks, and tools that inform Ellis Dennis Graham’s systems practice.' };
-  const world = pathname.match(/^\/worlds\/([^/]+)$/) && worlds.find((item) => item.slug === routeSlug(pathname));
-  if (world) return { title: `${world.title} — Cyber Elias`, description: world.description };
-  const project = pathname.match(/^\/projects\/([^/]+)$/) && projects.find((item) => item.slug === routeSlug(pathname));
-  if (project) return { title: `${project.title} — Project Profile`, description: project.description };
-  return { title: 'Lost Signal — Cyber Elias', description: 'This path is not in the Ellis Dennis Graham digital universe. Return to the orbital map.' };
 }
 
 export default function App() {

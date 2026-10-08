@@ -270,31 +270,35 @@ Do not collect form contents or personal data as analytics events.
 
 ### Phase 1 — Core universe (implemented MVP)
 
-Visual foundation, accessible shell, orbit, eight world routes, theme states, mobile layout, project profiles, and real navigation.
+Visual foundation, accessible shell, orbital navigation, eight world routes, theme states, mobile layout, project profiles, and real navigation. The Celestial Observatory opening and Phase 3 world environments have been implemented as reviewable passes.
 
 ### Phase 2 — Evidence and content (owner input required)
 
-Confirm biography, role history, credentials, project status, personal contribution, screenshots, safe diagrams, outcomes, live links, and CV. Remove any capability that does not reflect an offer Ellis wants to make.
+A claim-level evidence ledger and explicit publication gates are implemented. Confirm biography, role history, credentials, project status, personal contribution, screenshots, safe diagrams, outcomes, live links, and CV before publishing evidence. Remove any capability that does not reflect an offer Ellis wants to make.
 
-### Phase 3 — Deep worlds
+### Phase 3 — Deep worlds (visual pass implemented; evidence still owner-gated)
 
-Expand selected worlds with verified case studies, service packages, richer architecture views, and world-specific evidence.
+Eight distinct SVG field studies and world-specific existing experiences are connected to the world routes. Verified case studies, service packages, richer architecture views, and world-specific proof still require owner-approved content.
 
 ### Phase 4 — Interactive demonstrations (partially prototyped)
 
-Refine Network Forge, War Room, Automation Engine, Teaching Lab, and Data Constellation; add a safe security tabletop and product architecture explorer where useful.
+Network Forge, War Room, Automation Engine, Teaching Lab, Data Constellation, Business Diagnostic, Customer Journey, and Architecture Explorer are available as illustrative experiences. Continue refinements only where they improve comprehension and preserve clear concept/prototype labels.
 
-### Phase 5 — Conversion
+### Phase 5 — Conversion (client-side discovery pass implemented)
 
-Connect confirmed public email/profile links, decide whether direct email or a server-backed form is appropriate, add privacy and anti-spam measures, and test the full lead journey.
+Service-specific intake prompts, optional context, bounded inputs, copyable brief, and optional user-controlled mailto draft are in place. No address or backend is configured. Add a server-backed form only after an owner-approved destination, retention policy, abuse controls, and privacy copy are established.
 
-### Phase 6 — Archive and professional mode
+### Phase 6 — Archive and professional mode (owner input required)
 
-Publish confirmed résumé, dates, credentials, documents, and an optional timeline with provenance.
+The Archive describes the evidence model and uses explicit pending states. Publish confirmed résumé, dates, credentials, documents, or a timeline only with provenance and owner review.
 
-### Phase 7 — CMS, analytics, and polish
+### Phase 7 — Production polish (partially implemented)
 
-Only if justified: secure CMS, low-intrusion analytics, optional sound, more animation/3D, performance refinement, metadata and launch QA.
+Static-host security headers and route metadata checks are in place. No sound or 3D is justified by the current SVG/HTML experiences. Before launch, complete domain-specific crawler/prerender decisions, production-host header checks, responsive/browser QA, accessibility review, performance measurement, and metadata/social-card verification.
+
+### Phase 8 — CMS and analytics (deferred unless justified)
+
+Static owner-authored content and the absence of a defined measurement need do not justify a CMS or analytics SDK. Revisit only if editorial frequency or a specific privacy-conscious question supports the maintenance and data costs.
 
 ## 14. Launch checklist
 

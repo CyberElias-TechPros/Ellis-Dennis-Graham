@@ -4,6 +4,7 @@ import { worlds, projects, toolkit, serviceOptions, thinkingSteps, labs } from '
 import { Icon } from '../components/Icons.jsx';
 import SectionHeading from '../components/SectionHeading.jsx';
 import ProjectCard from '../components/ProjectCard.jsx';
+import ProjectEvidenceLedger from '../components/ProjectEvidenceLedger.jsx';
 import ProjectIntake from '../components/ProjectIntake.jsx';
 import { NetworkForge, WarRoom, WorkflowEngine, TeachingLab, DataConstellation } from '../components/LabExperiences.jsx';
 import ArchitectureExplorer from '../components/ArchitectureExplorer.jsx';
@@ -106,6 +107,7 @@ export function ProjectPage() {
   const project = projects.find((item) => item.slug === slug);
   const world = worlds.find((item) => item.slug === project?.world);
   if (!project) return <NotFound />;
+  const projectVerified = project.verificationStatus === 'owner-verified';
 
   return (
     <main className="inner-page project-detail" style={{ '--project-color': project.color }}>
@@ -121,14 +123,14 @@ export function ProjectPage() {
           <div className="project-detail-actions"><Link className="button-primary" to={`/start-a-project${world ? `?service=${world.slug}` : ''}`}>Discuss a similar system <Icon name="ArrowUpRight" size={16} /></Link>{world && <Link className="button-quiet" to={`/worlds/${world.slug}`}>Explore {world.title} <Icon name="ArrowRight" size={15} /></Link>}</div>
         </header>
 
-        <section className="project-explorer-section"><SectionHeading eyebrow="ARCHITECTURE EXPLORER / FOUR LENSES" title="One system. Different perspectives." description="See how the same project can be explained for a user, a business, an architect, or a technical reviewer. Unverified implementation details remain withheld." /><ArchitectureExplorer project={project} /></section>
-        <div className="project-integrity-banner"><Icon name="ShieldCheck" size={19} /><div><strong>Transparent project record</strong><p>This profile is intentionally careful about what it claims. The project name and direction are provided as a starting point; implementation status, role, and outcomes must be verified before publication.</p></div></div>
+        <section className="project-explorer-section"><SectionHeading eyebrow="ARCHITECTURE EXPLORER / FOUR LENSES" title={projectVerified ? 'One verified system. Different perspectives.' : 'Explore the project direction through four lenses.'} description={projectVerified ? 'See the verified project record from a user, business, architecture, or technical perspective.' : 'These are illustrative perspectives on the supplied project brief—not claims about delivered features, a live workflow, or verified implementation.'} /><ArchitectureExplorer project={project} /></section>
 
         <div className="project-detail-grid">
           <section className="project-detail-card project-detail-card--story"><span className="micro-label">01 / THE OPPORTUNITY</span><h2>What needed to become easier?</h2><p>{project.description}</p><p>A complete case study will describe the people and workflow behind the brief, the constraints, and the outcome that mattered.</p></section>
           <section className="project-detail-card"><span className="micro-label">02 / FOCUS AREAS</span><h2>What this profile explores.</h2><ul>{project.focus.map((item) => <li key={item}><Icon name="Compass" size={14} />{item}</li>)}</ul></section>
           <section className="project-detail-card project-detail-card--full"><span className="micro-label">03 / EVIDENCE TO COMPLETE</span><h2>Make the work inspectable.</h2><div className="project-question-list">{project.questions.map((question, index) => <div key={question}><span>0{index + 1}</span><p>{question}</p></div>)}</div><div className="project-proof-note"><Icon name="Info" size={16} />{project.proofNote}</div></section>
         </div>
+        <ProjectEvidenceLedger project={project} />
         <div className="project-next"><div><span className="micro-label">THE NEXT LAYER</span><h2>Build the full case study around the evidence.</h2></div><Link className="button-outline" to="/archive">Explore the Archive <Icon name="ArrowUpRight" size={16} /></Link></div>
       </div>
     </main>

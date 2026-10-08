@@ -196,6 +196,21 @@ type EvidenceArtifact = {
   verifiedByOwner: boolean;
 };
 
+type EvidenceClaim = {
+  id: string;
+  label: string;
+  statement?: string;
+  verifiedByOwner: boolean;
+  evidenceIds: string[];
+};
+
+type ProjectProofRecord = {
+  ownerVerified: boolean;
+  disclosureStatus: 'not-assessed' | 'approved' | 'withheld';
+  claims: EvidenceClaim[];
+  artifacts: EvidenceArtifact[];
+};
+
 type CapabilityWorld = {
   slug: string;
   order: number;
@@ -231,7 +246,7 @@ type PortfolioProject = {
   lessons?: string[];
   technologyIds: string[];
   worldIds: string[];
-  artifacts: EvidenceArtifact[];
+  proof: ProjectProofRecord;
   liveUrl?: string;
   repositoryUrl?: string;
   verifiedByOwner: boolean;
@@ -268,6 +283,8 @@ type Experiment = {
 - Store only public-safe content in client bundles. Never place secrets in Vite environment variables.
 - Seed the existing four named profiles as `prototype`/`concept` only if Ellis confirms that status; otherwise keep `status: 'idea'` or hide the entry until the owner decides.
 - No certification record can be added without issuing body, date, and owner confirmation.
+- A project artifact is public only when both `verifiedByOwner` and `safeToPublish` are `true`; individual claims link by artifact ID and remain unverified until an owner-reviewed record says otherwise.
+- `disclosureStatus: 'withheld'` suppresses artifact and claim detail, even if an artifact has a public flag. `not-assessed` is not the same as confirmed public or confidential work.
 
 ---
 
@@ -638,41 +655,52 @@ No release with console errors, broken route refresh, unlabelled interactive con
 
 ### Step 5 — Project Architecture Explorer and proof engine
 
-- Add four audience views backed by the same verified project record.
-- Link evidence to specific claims and status labels.
-- Add empty and confidential-work states.
+**Status: IMPLEMENTED AS A REVIEWABLE ENGINE; artifact population remains owner input.**
+
+- Keep four audience views backed by one project record, explicitly labelled conceptual while a project is unverified.
+- Link public evidence to individual claims by artifact ID; require both owner verification and publication clearance before an artifact appears.
+- Provide honest empty and withheld/confidential states; withhold claim statements and artifacts when disclosure is marked restricted.
 
 ### Step 6 — Conversion and contact
 
-- Improve problem diagnostic and conditional intake.
-- Connect only an owner-approved contact mechanism.
-- Add server API, storage, spam controls, privacy copy, and retention only if approved.
+**Status: FRONTEND-ONLY DISCOVERY PASS IMPLEMENTED; no contact integration is configured.**
+
+- Use service-specific discovery prompts and optional conditional context, bounded fields, and a reviewable copyable brief.
+- Keep form data in page memory; use a configured public email only as an explicit mailto draft. No server/API, storage, or auto-send is enabled.
+- Add server API, spam controls, privacy copy, and retention only after an owner-approved integration and retention plan.
 
 ### Step 7 — Optional 3D and production hardening
 
-- Prototype a single isolated scene behind dynamic import and a static fallback.
-- Measure actual mobile performance before expanding it.
-- Perform SEO, security headers, accessibility, responsive, route-refresh, and browser QA.
+**Status: SECURITY/ROUTE-METADATA BASELINE IMPLEMENTED; visual/browser QA remains open.**
+
+- Do not add 3D unless a specific scene demonstrates a comprehension benefit, static fallback, and measured mobile budget. The current HTML/SVG worlds satisfy the brief without WebGL.
+- Static-host headers include a restrictive CSP and basic browser security policies; per-route metadata is independently testable.
+- Complete SEO, accessibility, responsive, route-refresh, and browser QA before launch. Automated structural tests are not a substitute for manual assistive-technology review.
 
 ### Step 8 — CMS/analytics only if justified
 
-- Define editorial roles, validation, backups, deletion, privacy, event taxonomy, and cost before implementation.
+**Status: DEFERRED — current static, owner-authored content does not justify a CMS or analytics SDK.**
+
+- Reconsider only when an editorial workflow or a specific, privacy-conscious measurement question justifies roles, validation, backups, deletion, privacy, event taxonomy, and ongoing cost.
 
 Each step should be delivered as a small, independently buildable change. Keep the dev server preview running while iterating; do not commit generated `dist/` or `node_modules/` artifacts.
 
 ### Implementation checkpoint — 2026-10-08
 
-**Design trial status:** Ellis approved the refined “Celestial Observatory” direction and explicitly chose Phase 3 — Worlds. This checkpoint carries that direction into the eight capability-world routes only. It does not advance the project-proof engine, business conversion features, Archive, CMS, or production integrations.
+**Roadmap status:** Ellis approved the Celestial Observatory direction and Worlds, then authorized continuing through the subsequent Build Contract steps in sequence. Phases remain incremental; any public proof, contact integration, or owner-dependent data stays gated on explicit verification.
 
 - **Approved visual language — “Celestial Observatory”:** deep-space indigo, a warm stellar-gold core, restrained nebula violet and stellar-blue atmosphere, editorial typography, deliberate whitespace, and quiet surfaces rather than glass/HUD decoration. The opening’s central sun carries a fine sacred-geometry sigil; capability links read as individual planets on ordered orbits. Ascension is pearl dawn with its own warm light. Motion remains sparse and purposeful.
 - **Phase 1 — Foundation: IMPLEMENTED.** `src/design-system.css` provides shared color, type, spacing, surface, theme, control, focus, and motion tokens plus restrained global treatments.
 - **Phase 2 — Opening sequence: IMPLEMENTED.** The intro progresses through Void → First Light → Identity → Ignition → Universe. Skip/Escape remain available, reduced-motion users go directly to the ready state, and the final state reveals eight navigable world symbols, conventional quick links, and an Enter the Universe action. No visit is stored; there is no WebGL or sound dependency.
-- **Phase 3 — Worlds: IMPLEMENTED AS A REVIEWABLE PASS.** Each world now has an `environment` key in `src/content.js` and its own lightweight SVG field-study grammar: a security citadel, network topology, software layers, neural workflow, digital-business skyline, learning folio, data constellation, or digital-presence portal. These are paired with the existing world-specific interactions (War Room, Network Forge, Architecture Explorer, Workflow Engine, Business Diagnostic, Teaching Lab, Data Constellation, and Customer Journey) rather than a shared card grid. World pages also receive responsive, color-aware atmosphere and content hierarchy. Decorative scenes are labelled hidden to assistive technology; the real copy, routes, and demonstrations remain semantic and usable without WebGL.
-- **Scope held:** no rework to the proof engine, business features, Archive, contact integration, or named-project claims. Existing evidence disclaimers remain in place.
-- **Owner-dependent content:** Cyber Elias is selected. Public email, phone, profile links, CV, portrait permission, and project-specific evidence remain unconfigured/unverified. No proof, live status, or outcomes are invented.
-- **Verification:** `npm test` passes (9 test groups, including semantic server-render checks across all 24 route cases); `npm run build` passes; `git diff --check` passes. Real-browser screenshots, responsive visual QA, axe/manual screen-reader review, production-host checks, and Core Web Vitals remain outstanding.
-- **Current build sizes:** entry JavaScript 446.25 kB / 143.59 kB gzip; largest route chunk 51.54 kB / 14.78 kB gzip; CSS 114.21 kB / 22.75 kB gzip.
-- **Next checkpoint:** review the eight Worlds as a distinct phase. Do not treat this approval as authorization to rework later project-proof or business phases. Keep owner verification and launch QA separate from design approval.
+- **Phase 3 — Worlds: IMPLEMENTED AS A REVIEWABLE PASS.** Each world has a content-mapped SVG field-study grammar—security citadel, network topology, software layers, neural workflow, business skyline, learning folio, data constellation, or digital-presence portal—paired with the existing world-specific interaction. These are not a recolored card grid; the decorative scene is hidden from assistive technology and never gates semantic content.
+- **Step 5 — Project proof engine: IMPLEMENTED.** Four perspective views are labelled conceptual while projects are unverified. Each project now has a structured proof record; a public artifact must be both owner-verified and marked safe to publish, and can be linked to specific claims. Empty and withheld states are supported. All four records currently have zero verified artifacts and need Ellis’s review; no evidence is invented.
+- **Step 6 — Discovery/contact: FRONTEND-ONLY PASS IMPLEMENTED.** The intake includes service-specific prompts, optional conditional context, bounded fields, and a copyable brief. Inputs remain in page memory; a configured public email opens a user-controlled mailto draft. No automatic submission, backend, or storage exists; no contact destination is currently configured.
+- **Step 7 — Production baseline: PARTIALLY IMPLEMENTED.** Static-host security headers and asset-cache rules are included; route title/description selection is extracted and tested for distinct destinations. No 3D/WebGL was added because the current diagrams provide the needed explanation without a measured benefit from a heavier scene. Host-level header verification, crawler-visible per-route HTML, responsive browser QA, accessibility review, and Core Web Vitals remain outstanding. The SPA rewrite is configured; domain-specific canonical/sitemap decisions await the final verified domain.
+- **Step 8 — CMS/analytics: DEFERRED AS NOT JUSTIFIED.** The content is static and no editorial or measurement need was established; adding a CMS or analytics SDK now would add privacy and maintenance cost without a supported use case.
+- **Owner-dependent content:** Cyber Elias is selected. Public email, phone, profile links, CV, portrait permission, project roles/statuses, and project artifacts remain unconfigured or unverified. No proof, live status, credentials, or outcomes are invented.
+- **Verification:** `npm test` passes (14 test groups, including claim/artifact gating, confidential-state suppression, route metadata, and semantic SSR checks across all 24 route cases); `npm run build` and `git diff --check` pass. Real-browser screenshots, responsive visual QA, axe/manual assistive-technology review, and production-host security checks remain outstanding.
+- **Current build sizes:** entry JavaScript 446.80 kB / 143.79 kB gzip; largest route chunk 57.42 kB / 16.46 kB gzip; CSS 124.92 kB / 24.32 kB gzip.
+- **Next checkpoint:** review the project evidence and intake passes in the live preview, then complete the outstanding launch QA and owner verification. Keep CMS, analytics, backend integrations, and 3D deferred unless a concrete, approved need changes.
 
 ---
 

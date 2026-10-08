@@ -9,6 +9,8 @@ import './legibility.css';
 import './experience.css';
 import './design-system.css';
 import './world-environments.css';
+import './project-evidence.css';
+import './intake.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

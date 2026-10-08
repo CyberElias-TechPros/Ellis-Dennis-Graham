@@ -153,6 +153,18 @@ export const worlds = [
   }
 ];
 
+const createEmptyProjectProof = () => ({
+  ownerVerified: false,
+  disclosureStatus: 'not-assessed',
+  claims: [
+    { id: 'implementation-status', label: 'Implementation status', verifiedByOwner: false, evidenceIds: [] },
+    { id: 'personal-contribution', label: 'Personal contribution', verifiedByOwner: false, evidenceIds: [] },
+    { id: 'scope-and-decisions', label: 'Scope and design decisions', verifiedByOwner: false, evidenceIds: [] },
+    { id: 'outcomes', label: 'Outcomes and measures', verifiedByOwner: false, evidenceIds: [] }
+  ],
+  artifacts: []
+});
+
 export const projects = [
   {
     slug: 'techpros',
@@ -166,6 +178,7 @@ export const projects = [
     status: 'Profile in progress',
     verificationStatus: 'unverified',
     evidenceStatus: 'in-progress',
+    proof: createEmptyProjectProof(),
     focus: ['Tickets', 'Assets', 'Inventory', 'Service reporting'],
     questions: ['What was the actual user or operational problem?', 'Which modules were implemented and by whom?', 'What can be linked, demonstrated, or measured?'],
     architecture: ['User and service workflows', 'Operational data model', 'Role-aware interfaces', 'Reporting and integrations'],
@@ -188,6 +201,7 @@ export const projects = [
     status: 'Profile in progress',
     verificationStatus: 'unverified',
     evidenceStatus: 'in-progress',
+    proof: createEmptyProjectProof(),
     focus: ['Courses', 'Learner experience', 'Assessment', 'Progress'],
     questions: ['Which learning programmes are currently available?', 'What is the learner journey from enrolment to completion?', 'What outcomes or learner work can be shared?'],
     architecture: ['Learning content', 'Learner and instructor roles', 'Assessment workflows', 'Progress and reporting'],
@@ -210,6 +224,7 @@ export const projects = [
     status: 'Profile in progress',
     verificationStatus: 'unverified',
     evidenceStatus: 'in-progress',
+    proof: createEmptyProjectProof(),
     focus: ['Product discovery', 'WhatsApp journey', 'Merchant workflow', 'Order information'],
     questions: ['What is live today and who uses it?', 'How are products, orders, and conversations handled?', 'What measurable outcome can be verified?'],
     architecture: ['Storefront', 'Product catalogue', 'Conversation handoff', 'Merchant operations'],
@@ -232,6 +247,7 @@ export const projects = [
     status: 'Profile in progress',
     verificationStatus: 'unverified',
     evidenceStatus: 'in-progress',
+    proof: createEmptyProjectProof(),
     focus: ['Interactive experience', 'Frontend architecture', 'Content discovery', 'Platform evolution'],
     questions: ['Which experiences are playable today?', 'What did you design or implement?', 'What technical and product lessons emerged?'],
     architecture: ['Player-facing interface', 'Game or content catalogue', 'Interaction layer', 'Hosting and analytics'],

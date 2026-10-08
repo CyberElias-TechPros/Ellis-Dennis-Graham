@@ -2,6 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { projects, worlds } from '../src/content.js';
+import { getPublishableArtifacts, safeEvidenceHref } from '../src/evidence.js';
+import { metadataFor } from '../src/routeMetadata.js';
 
 const slugs = (items) => items.map((item) => item.slug);
 
@@ -39,7 +41,55 @@ test('named project records stay explicitly unverified and expose no unsupported
     assert.equal(project.evidenceStatus, 'in-progress');
     assert.ok(project.architecture.length > 0);
     assert.deepEqual(project.perspectives.technical, [], `${project.title} should not imply unverified implementation detail`);
+    assert.equal(project.proof.ownerVerified, false);
+    assert.equal(project.proof.disclosureStatus, 'not-assessed');
+    assert.deepEqual(project.proof.artifacts, []);
+    assert.ok(project.proof.claims.length > 0);
+    assert.ok(project.proof.claims.every((claim) => claim.verifiedByOwner === false && claim.evidenceIds.length === 0));
   }
+});
+
+test('the evidence ledger publishes only owner-verified, publication-safe artifacts', () => {
+  const project = { proof: { artifacts: [
+    { id: 'approved', verifiedByOwner: true, safeToPublish: true },
+    { id: 'unverified', verifiedByOwner: false, safeToPublish: true },
+    { id: 'restricted', verifiedByOwner: true, safeToPublish: false }
+  ] } };
+  assert.deepEqual(getPublishableArtifacts(project).map((artifact) => artifact.id), ['approved']);
+  assert.deepEqual(getPublishableArtifacts({ proof: { artifacts: [] } }), []);
+});
+
+test('evidence links allow HTTPS and same-origin paths but reject unsafe schemes', () => {
+  assert.equal(safeEvidenceHref('https://example.com/evidence'), 'https://example.com/evidence');
+  assert.equal(safeEvidenceHref('/evidence/case-study.pdf'), '/evidence/case-study.pdf');
+  assert.equal(safeEvidenceHref('javascript:alert(1)'), null);
+  assert.equal(safeEvidenceHref('http://example.com'), null);
+  assert.equal(safeEvidenceHref('//example.com/path'), null);
+});
+
+test('route metadata provides distinct titles and descriptions for all portfolio destinations', () => {
+  const fixedPaths = ['/', '/worlds', '/projects', '/services', '/about', '/contact', '/start-a-project', '/lab', '/war-room', '/archive', '/arsenal'];
+  const paths = [
+    ...fixedPaths,
+    ...worlds.map((world) => `/worlds/${world.slug}`),
+    ...projects.map((project) => `/projects/${project.slug}`)
+  ];
+  const metadata = paths.map((path) => metadataFor(path));
+  assert.ok(metadata.every((item) => item.title && item.description));
+  assert.equal(new Set(metadata.map((item) => item.title)).size, paths.length, 'each route should have a distinct document title');
+  assert.equal(metadataFor('/worlds/software/').title, metadataFor('/worlds/software').title);
+  assert.equal(metadataFor('/not-a-route').title, 'Lost Signal — Cyber Elias');
+});
+
+test('static hosting configuration preserves route fallback and security headers', async () => {
+  const redirects = await readFile(new URL('../public/_redirects', import.meta.url), 'utf8');
+  const headers = await readFile(new URL('../public/_headers', import.meta.url), 'utf8');
+  assert.equal(redirects.trim(), '/* /index.html 200');
+  for (const header of ['X-Content-Type-Options: nosniff', 'Referrer-Policy: strict-origin-when-cross-origin', 'X-Frame-Options: DENY', "default-src 'self'", "frame-ancestors 'none'"]) {
+    assert.ok(headers.includes(header), `missing security policy: ${header}`);
+  }
+  assert.match(headers, /fonts\.googleapis\.com/);
+  assert.match(headers, /fonts\.gstatic\.com/);
 });
 
 test('direct navigation routes cover the world directory, project profiles, and contact page', async () => {
@@ -73,6 +123,16 @@ test('the opening presents the five-beat sequence and navigable worlds before en
   assert.match(intro, /className="intro-quick-nav"/);
   assert.match(design, /observatory-sigil-turn/);
   assert.match(intro, /Enter the universe/);
+});
+
+test('project intake uses conditional context and stays client-side with bounded inputs', async () => {
+  const intake = await readFile(new URL('../src/components/ProjectIntake.jsx', import.meta.url), 'utf8');
+  assert.match(intake, /contextPrompts\[form\.category\]/);
+  assert.match(intake, /maxLength=\{1200\}/);
+  assert.match(intake, /maxLength=\{600\}/);
+  assert.match(intake, /NO AUTO-SEND/);
+  assert.match(intake, /Nothing is sent or saved automatically/);
+  assert.doesNotMatch(intake, /localStorage|fetch\(/);
 });
 
 test('contact details are opt-in public configuration rather than invented defaults', async () => {

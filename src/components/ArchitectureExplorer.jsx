@@ -35,7 +35,7 @@ export default function ArchitectureExplorer({ project, compact = false }) {
   return (
     <section className={`architecture-explorer ${compact ? 'architecture-explorer--compact' : ''}`} aria-label={`Architecture Explorer for ${project.title}`}>
       <div className="architecture-explorer-top">
-        <div><span className="micro-label">PROJECT SYSTEM VIEW</span><h3>{project.title}</h3><p>One system, four ways to understand it.</p></div>
+        <div><span className="micro-label">{isUnverified ? 'CONCEPTUAL PROJECT MAP' : 'EVIDENCE-BACKED SYSTEM VIEW'}</span><h3>{project.title}</h3><p>{isUnverified ? 'Illustrative perspectives on the project brief—not a record of delivered work.' : 'One verified system, four ways to understand it.'}</p></div>
         <span className="architecture-orbit-mark" aria-hidden="true"><Icon name="Orbit" size={19} /></span>
       </div>
       <div className="architecture-tabs" role="tablist" aria-label="Choose a project perspective">

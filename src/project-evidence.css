@@ -1,0 +1,62 @@
+/* Phase 5 — claim-level evidence, publication gating, and honest empty states. */
+.project-evidence-ledger {
+  margin-top: 28px;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid color-mix(in srgb, var(--project-color, var(--accent)) 23%, var(--line));
+  border-radius: var(--surface-radius);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--project-color, var(--accent)) 4%, var(--bg-panel)), var(--bg-panel-soft) 66%);
+}
+.project-evidence-ledger-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 22px; }
+.project-evidence-ledger-head h2 { margin: 7px 0 0; font: 600 clamp(24px, 3vw, 34px)/1.12 var(--font-display); letter-spacing: -.05em; }
+.project-evidence-ledger-head p { max-width: 620px; margin: 8px 0 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.project-proof-status { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 7px; min-height: 32px; padding: 0 10px; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--muted); font: 500 8px/1 var(--font-mono); letter-spacing: .075em; }
+.project-proof-status svg { color: var(--accent); }
+.project-proof-status--verified { border-color: color-mix(in srgb, var(--success) 44%, var(--line)); color: var(--success); }
+.project-proof-status--verified svg { color: var(--success); }
+.project-evidence-empty { display: flex; align-items: flex-start; gap: 13px; margin-top: 22px; padding: 17px; border: 1px dashed var(--line-strong); border-radius: 10px; background: color-mix(in srgb, var(--bg) 40%, transparent); }
+.project-evidence-empty-icon { display: grid; width: 38px; height: 38px; flex: 0 0 auto; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--project-color, var(--accent)); background: color-mix(in srgb, var(--project-color, var(--accent)) 7%, var(--bg-panel)); }
+.project-evidence-empty strong { display: block; color: var(--ink-soft); font: 600 13px/1.4 var(--font-display); }
+.project-evidence-empty p { margin: 5px 0 0; color: var(--muted); font-size: 11px; line-height: 1.65; }
+.project-disclosure-note { display: flex; align-items: center; gap: 6px; margin-top: 9px; color: var(--muted-2); font-size: 10px; }
+.project-disclosure-note svg { flex: 0 0 auto; color: var(--accent); }
+.project-proof-claims { margin-top: 25px; }
+.project-proof-claims-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; margin-bottom: 11px; }
+.project-proof-claims-heading h3 { margin: 5px 0 0; color: var(--ink-soft); font: 600 16px/1.25 var(--font-display); letter-spacing: -.025em; }
+.project-proof-claims-heading > span { color: var(--muted-2); font: 9px/1.2 var(--font-mono); white-space: nowrap; }
+.project-proof-claims > ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.project-proof-claim { display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; align-items: start; gap: 9px; padding: 13px 12px; border: 1px solid var(--line); border-radius: 8px; background: color-mix(in srgb, var(--bg-panel) 76%, transparent); }
+.project-proof-claim-icon { display: grid; width: 27px; aspect-ratio: 1; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--muted-2); }
+.project-proof-claim-icon--verified { border-color: color-mix(in srgb, var(--success) 38%, var(--line)); color: var(--success); }
+.project-proof-claim-body > strong { color: var(--ink-soft); font: 600 11px/1.4 var(--font-display); }
+.project-proof-claim-body > p { margin: 4px 0 0; color: var(--muted); font-size: 10px; line-height: 1.55; }
+.project-proof-claim-status { margin-top: 2px; color: var(--muted-2); font: 8px/1.3 var(--font-mono); text-align: right; white-space: nowrap; }
+.project-proof-claim-status--verified { color: var(--success); }
+.project-proof-claim-evidence { display: flex; flex-wrap: wrap; gap: 7px 12px; margin-top: 8px; }
+.project-proof-claim-evidence a, .project-evidence-artifact > a { display: inline-flex; align-items: center; gap: 5px; color: var(--accent-bright); font-size: 10px; text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); text-underline-offset: 3px; }
+.project-proof-claim-evidence a:hover, .project-evidence-artifact > a:hover { color: var(--ink); text-decoration-color: currentColor; }
+.evidence-artifact-unlinked { color: var(--muted-2); font-size: 9px; line-height: 1.5; }
+.project-evidence-artifacts { display: grid; gap: 8px; margin-top: 21px; }
+.project-evidence-artifact { display: grid; grid-template-columns: 38px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 13px; border: 1px solid var(--line); border-radius: 9px; background: color-mix(in srgb, var(--bg-panel) 76%, transparent); }
+.project-evidence-artifact-icon { display: grid; width: 36px; aspect-ratio: 1; place-items: center; border: 1px solid color-mix(in srgb, var(--project-color, var(--accent)) 32%, var(--line)); border-radius: 50%; color: var(--project-color, var(--accent)); }
+.project-evidence-artifact .micro-label { font-size: 8px; }
+.project-evidence-artifact h3 { margin: 4px 0 0; color: var(--ink-soft); font: 600 12px/1.3 var(--font-display); }
+.project-evidence-artifact p { margin: 4px 0 0; color: var(--muted); font-size: 10px; line-height: 1.6; }
+@media (max-width: 720px) {
+  .project-evidence-ledger { margin-top: 23px; padding: 16px; }
+  .project-evidence-ledger-head { flex-direction: column; gap: 12px; }
+  .project-evidence-ledger-head h2 { font-size: 25px; }
+  .project-evidence-ledger-head p { font-size: 11px; }
+  .project-proof-status { min-height: 29px; }
+  .project-proof-claims-heading { align-items: flex-start; }
+  .project-proof-claims-heading h3 { font-size: 14px; }
+  .project-proof-claims > ul { grid-template-columns: 1fr; }
+  .project-evidence-artifact { grid-template-columns: 32px minmax(0, 1fr); gap: 9px; }
+  .project-evidence-artifact-icon { width: 31px; }
+  .project-evidence-artifact > a, .project-evidence-artifact > .evidence-artifact-unlinked { grid-column: 2; justify-self: start; }
+}
+@media (max-width: 380px) {
+  .project-proof-claim { grid-template-columns: 25px minmax(0, 1fr); }
+  .project-proof-claim-icon { width: 23px; }
+  .project-proof-claim-status { grid-column: 2; justify-self: start; }
+  .project-evidence-empty { gap: 10px; padding: 12px; }
+}
