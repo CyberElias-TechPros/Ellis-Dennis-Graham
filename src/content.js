@@ -1,0 +1,298 @@
+export const worlds = [
+  {
+    slug: 'cybersecurity',
+    environment: 'fortress',
+    number: '01',
+    title: 'Cybersecurity',
+    short: 'Protect the systems that matter.',
+    description: 'Practical security begins with understanding the people, assets, and workflows a system is meant to protect.',
+    symbol: '⛨',
+    icon: 'ShieldCheck',
+    color: '#a992ff',
+    orbit: 'outer',
+    capabilities: ['Security assessments', 'Network security design', 'System hardening', 'Access control', 'Risk reviews', 'Security awareness'],
+    offers: ['Review an environment and its highest-risk gaps', 'Strengthen network and endpoint foundations', 'Turn security findings into an actionable improvement plan'],
+    tools: ['NIST concepts', 'ISO 27001 concepts', 'Security baselines', 'Risk registers'],
+    evidence: ['Anonymized assessment summaries', 'Before-and-after hardening notes', 'Threat and risk scenarios', 'Policies or awareness material'],
+    demo: 'War Room',
+    demoHref: '/war-room',
+    mission: 'Make security understandable, proportionate, and part of how a system is designed—not a layer added at the end.'
+  },
+  {
+    slug: 'infrastructure',
+    environment: 'network',
+    number: '02',
+    title: 'Infrastructure',
+    short: 'Build the foundation everything depends on.',
+    description: 'Networks and infrastructure connect people, services, devices, and ideas. Good foundations are reliable, documented, and ready to grow.',
+    symbol: '⌘',
+    icon: 'Network',
+    color: '#5fe2d0',
+    orbit: 'outer',
+    capabilities: ['LAN / WAN design', 'Routing and switching', 'Wi-Fi and VLANs', 'VPN and segmentation', 'Firewall planning', 'Servers and platform foundations', 'IT support and troubleshooting', 'Deployment and maintenance', 'Documentation and monitoring'],
+    offers: ['Map an existing environment and identify weak points', 'Plan an office, campus, or multi-site deployment', 'Improve reliability, coverage, segmentation, and visibility', 'Support rollout, maintenance, and technical troubleshooting'],
+    tools: ['MikroTik', 'Cisco', 'Sophos', 'TCP/IP', 'VLAN', 'VPN', 'Windows', 'Microsoft 365'],
+    evidence: ['Network topology diagrams', 'Deployment notes and configuration patterns', 'Coverage and performance comparisons', 'Troubleshooting walkthroughs'],
+    demo: 'Network Forge',
+    demoHref: '/lab#network-forge',
+    mission: 'Connect the right things, in the right way, so the rest of the digital environment can work.'
+  },
+  {
+    slug: 'software',
+    environment: 'machine',
+    number: '03',
+    title: 'Software',
+    short: 'Turn useful ideas into working tools.',
+    description: 'Purpose-built software can remove friction, make information easier to use, and give a business room to operate differently.',
+    symbol: '⌬',
+    icon: 'PanelsTopLeft',
+    color: '#ffb86c',
+    orbit: 'outer',
+    capabilities: ['Web applications', 'Business dashboards', 'APIs and integrations', 'Portals and internal tools', 'Progressive web apps', 'Product and system architecture'],
+    offers: ['Shape a product from an operational need', 'Build a focused web experience or internal tool', 'Connect existing services into a useful workflow'],
+    tools: ['React', 'Vite', 'JavaScript', 'APIs', 'Databases', 'Cloudflare', 'WordPress'],
+    evidence: ['Working demos and source links', 'Architecture maps', 'Feature walkthroughs', 'Build decisions and trade-offs'],
+    demo: 'Architecture Explorer',
+    demoHref: '/projects',
+    mission: 'Build the smallest complete system that solves the real problem—and leave a clear path for what comes next.'
+  },
+  {
+    slug: 'ai-automation',
+    environment: 'neural',
+    number: '04',
+    title: 'AI & Automation',
+    short: 'Give repetitive work a smarter path.',
+    description: 'Automation is most useful when it makes a real process easier to run, inspect, and improve—not when it adds complexity for its own sake.',
+    symbol: '⟡',
+    icon: 'Workflow',
+    color: '#ff7f9f',
+    orbit: 'outer',
+    capabilities: ['Workflow mapping', 'AI-assisted experiences', 'Notifications and approvals', 'Data and document processing', 'Reporting automation', 'WhatsApp-oriented workflows'],
+    offers: ['Find repeatable work worth simplifying', 'Prototype a human-in-the-loop AI workflow', 'Connect forms, data, notifications, and reporting'],
+    tools: ['Workflow design', 'APIs', 'AI integrations', 'Messaging systems', 'Data pipelines'],
+    evidence: ['Before-and-after process maps', 'Automation prototypes', 'Human review and exception paths', 'Time or error measures when verified'],
+    demo: 'Automation Engine',
+    demoHref: '/lab#automation-engine',
+    mission: 'Keep people in control, make the flow visible, and automate only what can be made dependable.'
+  },
+  {
+    slug: 'digital-business',
+    environment: 'city',
+    number: '05',
+    title: 'Digital Business',
+    short: 'Shape the systems behind better operations.',
+    description: 'A business system should help people serve customers, coordinate work, and make decisions with less guesswork.',
+    symbol: '◈',
+    icon: 'Blocks',
+    color: '#f4ce6a',
+    orbit: 'outer',
+    capabilities: ['CRM and customer journeys', 'ERP and operational workflows', 'POS and inventory concepts', 'Booking and customer portals', 'Digital transformation planning', 'Business process improvement'],
+    offers: ['Map a manual process and find the right digital fit', 'Scope a practical business system or portal', 'Connect digital presence to day-to-day operations'],
+    tools: ['CRM', 'ERP', 'POS', 'Inventory systems', 'Process mapping', 'Integrations'],
+    evidence: ['Current-to-future workflow maps', 'Clickable prototypes', 'System architecture', 'Adoption and rollout plans'],
+    demo: 'Give Me a Problem',
+    demoHref: '/start-a-project',
+    mission: 'Start with the way the business works; choose technology to serve that reality.'
+  },
+  {
+    slug: 'education',
+    environment: 'library',
+    number: '06',
+    title: 'Education',
+    short: 'Make technology easier to understand and use.',
+    description: 'Digital confidence grows when people can learn by doing, ask better questions, and see how technology connects to their goals.',
+    symbol: '✧',
+    icon: 'GraduationCap',
+    color: '#8cc8ff',
+    orbit: 'outer',
+    capabilities: ['ICT and digital-skills training', 'Networking fundamentals', 'Cybersecurity awareness', 'Web and software learning', 'Curriculum and workshop design', 'Practical assessments'],
+    offers: ['Design hands-on training for a specific audience', 'Build a short course or workshop pathway', 'Create practical digital-skills materials and assessments'],
+    tools: ['Computer fundamentals', 'Microsoft Office', 'Networking', 'Cybersecurity', 'Web development', 'Digital marketing', 'Data and AI literacy'],
+    evidence: ['Course outlines and learning objectives', 'Sample exercises and assessment rubrics', 'Learner projects', 'Feedback and outcomes when available'],
+    demo: 'Teaching Lab',
+    demoHref: '/lab#teaching-lab',
+    mission: 'Translate technical ideas into clear, practical learning people can carry into their work.'
+  },
+  {
+    slug: 'data-analytics',
+    environment: 'constellation',
+    number: '07',
+    title: 'Data & Analytics',
+    short: 'Turn raw information into clearer decisions.',
+    description: 'Data becomes useful when it is trustworthy, well-framed, and presented in a way that helps someone decide what to do next.',
+    symbol: '◎',
+    icon: 'ChartNoAxesCombined',
+    color: '#85aaff',
+    orbit: 'outer',
+    capabilities: ['Data cleanup and structuring', 'Dashboards and reporting', 'Assessment analytics', 'Data visualization', 'Operational metrics', 'Decision-support views'],
+    offers: ['Clarify the question a report should answer', 'Design a useful dashboard or recurring report', 'Make a process or assessment dataset easier to interpret'],
+    tools: ['Dashboards', 'Data visualization', 'Spreadsheets', 'Reporting workflows', 'Analytics concepts'],
+    evidence: ['Anonymized dashboards', 'Dataset-to-insight walkthroughs', 'Data definitions and assumptions', 'Reproducible reporting steps'],
+    demo: 'Data Constellation',
+    demoHref: '/lab#data-constellation',
+    mission: 'Make the meaning visible, preserve context, and never let a chart pretend to know more than the data.'
+  },
+  {
+    slug: 'digital-presence',
+    environment: 'portal',
+    number: '08',
+    title: 'Digital Presence',
+    short: 'Make a digital front door worth opening.',
+    description: 'A website or online presence should tell a clear story, help the right person take a next step, and work well wherever it is viewed.',
+    symbol: '✦',
+    icon: 'Globe2',
+    color: '#f59ee8',
+    orbit: 'outer',
+    capabilities: ['Business and portfolio websites', 'Landing pages', 'Content and social-media systems', 'Search-friendly foundations', 'Digital brand systems', 'Digital marketing strategy', 'Local business profiles', 'Website optimization'],
+    offers: ['Create or refresh a business website', 'Design a landing page around a clear action', 'Plan content, discovery, and lead capture', 'Shape an online marketing presence around clear goals'],
+    tools: ['Responsive web design', 'SEO foundations', 'Social media', 'Digital advertising', 'Content systems', 'Web analytics', 'Cloudflare'],
+    evidence: ['Live links', 'Page and user-flow walkthroughs', 'Before-and-after examples', 'Accessibility and performance checks'],
+    demo: 'The Universe Itself',
+    demoHref: '/projects',
+    mission: 'Make digital experiences memorable, useful, fast, and easy to navigate.'
+  }
+];
+
+const createEmptyProjectProof = () => ({
+  ownerVerified: false,
+  disclosureStatus: 'not-assessed',
+  claims: [
+    { id: 'implementation-status', label: 'Implementation status', verifiedByOwner: false, evidenceIds: [] },
+    { id: 'personal-contribution', label: 'Personal contribution', verifiedByOwner: false, evidenceIds: [] },
+    { id: 'scope-and-decisions', label: 'Scope and design decisions', verifiedByOwner: false, evidenceIds: [] },
+    { id: 'outcomes', label: 'Outcomes and measures', verifiedByOwner: false, evidenceIds: [] }
+  ],
+  artifacts: []
+});
+
+export const projects = [
+  {
+    slug: 'techpros',
+    title: 'TechPros',
+    category: 'IT service management',
+    subtitle: 'A clearer command center for IT service work.',
+    description: 'A platform profile for bringing service requests, assets, inventory, vendors, service levels, and reporting into one operational view.',
+    world: 'software',
+    symbol: '⌘',
+    color: '#5fe2d0',
+    status: 'Profile in progress',
+    verificationStatus: 'unverified',
+    evidenceStatus: 'in-progress',
+    proof: createEmptyProjectProof(),
+    focus: ['Tickets', 'Assets', 'Inventory', 'Service reporting'],
+    questions: ['What was the actual user or operational problem?', 'Which modules were implemented and by whom?', 'What can be linked, demonstrated, or measured?'],
+    architecture: ['User and service workflows', 'Operational data model', 'Role-aware interfaces', 'Reporting and integrations'],
+    perspectives: {
+      user: ['Raise or follow a service request', 'See relevant asset or service context', 'Understand the next action'],
+      business: ['Request intake and ownership', 'Asset and inventory visibility', 'Service reporting and follow-up'],
+      technical: []
+    },
+    proofNote: 'Add the verified role, implementation scope, screenshots, live URL, and outcomes before describing this as deployed.'
+  },
+  {
+    slug: 'cyber-elias-academy',
+    title: 'Cyber Elias Academy',
+    category: 'Technology education',
+    subtitle: 'A learning ecosystem for practical digital skills.',
+    description: 'A project profile for courses, learner journeys, assignments, attendance, assessment, and progress through technology education.',
+    world: 'education',
+    symbol: '✧',
+    color: '#8cc8ff',
+    status: 'Profile in progress',
+    verificationStatus: 'unverified',
+    evidenceStatus: 'in-progress',
+    proof: createEmptyProjectProof(),
+    focus: ['Courses', 'Learner experience', 'Assessment', 'Progress'],
+    questions: ['Which learning programmes are currently available?', 'What is the learner journey from enrolment to completion?', 'What outcomes or learner work can be shared?'],
+    architecture: ['Learning content', 'Learner and instructor roles', 'Assessment workflows', 'Progress and reporting'],
+    perspectives: {
+      user: ['Find a learning path', 'Complete a practical activity', 'See feedback and the next step'],
+      business: ['Course structure and delivery', 'Learner journey and support', 'Assessment and progress reporting'],
+      technical: []
+    },
+    proofNote: 'Add confirmed courses, teaching role, platform screenshots, and learner outcomes where sharing is permitted.'
+  },
+  {
+    slug: 'cybershop',
+    title: 'CyberShop',
+    category: 'Digital commerce',
+    subtitle: 'A customer-friendly path from discovery to conversation.',
+    description: 'A project profile for a WhatsApp-oriented storefront connecting product discovery, customer questions, and merchant workflows.',
+    world: 'digital-business',
+    symbol: '◈',
+    color: '#f4ce6a',
+    status: 'Profile in progress',
+    verificationStatus: 'unverified',
+    evidenceStatus: 'in-progress',
+    proof: createEmptyProjectProof(),
+    focus: ['Product discovery', 'WhatsApp journey', 'Merchant workflow', 'Order information'],
+    questions: ['What is live today and who uses it?', 'How are products, orders, and conversations handled?', 'What measurable outcome can be verified?'],
+    architecture: ['Storefront', 'Product catalogue', 'Conversation handoff', 'Merchant operations'],
+    perspectives: {
+      user: ['Discover a product', 'Start a conversation with the merchant', 'Understand how to follow up'],
+      business: ['Catalogue presentation', 'Customer conversation handoff', 'Merchant follow-up workflow'],
+      technical: []
+    },
+    proofNote: 'Confirm deployment status, your contribution, integrations, and any results before presenting this as a live service.'
+  },
+  {
+    slug: 'freegameplay',
+    title: 'FreeGameplay',
+    category: 'Interactive web platform',
+    subtitle: 'A playful product space built around browser experiences.',
+    description: 'A project profile for a gaming-focused web experience, with room to document gameplay, frontend architecture, and platform decisions.',
+    world: 'software',
+    symbol: '✺',
+    color: '#ffb86c',
+    status: 'Profile in progress',
+    verificationStatus: 'unverified',
+    evidenceStatus: 'in-progress',
+    proof: createEmptyProjectProof(),
+    focus: ['Interactive experience', 'Frontend architecture', 'Content discovery', 'Platform evolution'],
+    questions: ['Which experiences are playable today?', 'What did you design or implement?', 'What technical and product lessons emerged?'],
+    architecture: ['Player-facing interface', 'Game or content catalogue', 'Interaction layer', 'Hosting and analytics'],
+    perspectives: {
+      user: ['Discover a browser experience', 'Start an interaction', 'Know how to continue or return'],
+      business: ['Content discovery', 'Player engagement', 'Platform evolution and measurement'],
+      technical: []
+    },
+    proofNote: 'Add a working link, your precise role, screenshots, and verified implementation details.'
+  }
+];
+
+export const thinkingSteps = [
+  { number: '01', title: 'Discover', detail: 'Understand the people, goals, constraints, and what is actually failing.' },
+  { number: '02', title: 'Map', detail: 'Make workflows, dependencies, risks, and data visible before choosing tools.' },
+  { number: '03', title: 'Architect', detail: 'Design a practical path that fits the environment and can grow responsibly.' },
+  { number: '04', title: 'Build', detail: 'Deliver in useful increments, with clarity about what is ready and what is not.' },
+  { number: '05', title: 'Verify', detail: 'Test, secure, document, and confirm the outcome against the original need.' },
+  { number: '06', title: 'Improve', detail: 'Monitor what matters, learn from use, and make the next change deliberate.' }
+];
+
+export const labs = [
+  { id: 'network-forge', title: 'Network Forge', subtitle: 'A living map of a resilient network.', tag: 'INTERACTIVE ARCHITECTURE', icon: 'Network', world: 'infrastructure' },
+  { id: 'war-room', title: 'The War Room', subtitle: 'Trace an outage from signal to recovery.', tag: 'INCIDENT SIMULATION', icon: 'ShieldAlert', world: 'cybersecurity' },
+  { id: 'automation-engine', title: 'Automation Engine', subtitle: 'Connect a repetitive task to a human-reviewed flow.', tag: 'WORKFLOW DESIGN', icon: 'Workflow', world: 'ai-automation' },
+  { id: 'teaching-lab', title: 'Teaching Lab', subtitle: 'Turn a technical idea into a practical learning path.', tag: 'MICRO-LESSON', icon: 'GraduationCap', world: 'education' },
+  { id: 'data-constellation', title: 'Data Constellation', subtitle: 'Move from a question to a useful signal.', tag: 'DATA STORY', icon: 'ChartNoAxesCombined', world: 'data-analytics' }
+];
+
+export const toolkit = [
+  { title: 'Networks & infrastructure', description: 'The connective tissue of reliable digital work.', items: ['MikroTik', 'Cisco', 'Sophos', 'TCP/IP', 'VLAN', 'VPN', 'Wi-Fi', 'Routing'] },
+  { title: 'Software & web', description: 'Tools for turning an idea into a usable system.', items: ['React', 'Vite', 'JavaScript', 'APIs', 'Databases', 'Cloudflare', 'WordPress'] },
+  { title: 'Platforms & operations', description: 'The environments people depend on every day.', items: ['Windows', 'Microsoft 365', 'Servers', 'Firewalls', 'Monitoring', 'Deployment'] },
+  { title: 'Security & systems', description: 'Methods that bring structure to risk and change.', items: ['NIST concepts', 'ISO 27001 concepts', 'Hardening', 'Access control', 'Risk assessment', 'Documentation'] }
+];
+
+export const serviceOptions = [
+  { value: 'infrastructure', label: 'Network or IT infrastructure', world: 'infrastructure', recommendation: 'Infrastructure discovery and architecture review' },
+  { value: 'security', label: 'Cybersecurity or risk', world: 'cybersecurity', recommendation: 'Security assessment and prioritized improvement plan' },
+  { value: 'software', label: 'Software or a web application', world: 'software', recommendation: 'Product discovery, architecture, and a focused build plan' },
+  { value: 'automation', label: 'AI or workflow automation', world: 'ai-automation', recommendation: 'Workflow mapping and a human-reviewed automation prototype' },
+  { value: 'business', label: 'A business system or digital transformation', world: 'digital-business', recommendation: 'Business-process mapping and system fit assessment' },
+  { value: 'training', label: 'Technology training or education', world: 'education', recommendation: 'Audience-led learning plan, workshop, or practical assessment' },
+  { value: 'data', label: 'Data, dashboards, or reporting', world: 'data-analytics', recommendation: 'Data discovery and decision-focused reporting design' },
+  { value: 'presence', label: 'A website, SEO, or digital marketing', world: 'digital-presence', recommendation: 'Website discovery, content structure, and experience design' },
+  { value: 'consulting', label: 'IT consulting or systems architecture', world: 'digital-business', recommendation: 'Technical discovery, architecture guidance, and a practical roadmap' },
+  { value: 'unsure', label: 'I am not sure yet', world: 'digital-business', recommendation: 'A short discovery conversation to clarify the real need' }
+];
