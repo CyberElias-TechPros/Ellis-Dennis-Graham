@@ -8,6 +8,7 @@ import './responsive.css';
 import './legibility.css';
 import './experience.css';
 import './design-system.css';
+import './world-environments.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

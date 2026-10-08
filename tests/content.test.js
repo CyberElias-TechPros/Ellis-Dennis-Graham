@@ -23,6 +23,13 @@ test('each capability world has a mapped interactive experience', async () => {
   for (const world of worlds) assert.ok(experiences.includes(`world.slug === '${world.slug}'`), `${world.title} needs an experience mapping`);
 });
 
+test('each world has a distinct field-study environment signature', async () => {
+  const styles = await readFile(new URL('../src/world-environments.css', import.meta.url), 'utf8');
+  const families = worlds.map((world) => world.environment);
+  assert.equal(new Set(families).size, worlds.length, 'each world should use its own environmental grammar');
+  for (const family of families) assert.ok(styles.includes(`.world-environment--${family}`), `${family} needs an art-direction treatment`);
+});
+
 test('named project records stay explicitly unverified and expose no unsupported technical details', () => {
   assert.deepEqual(new Set(slugs(projects)), new Set(['techpros', 'cyber-elias-academy', 'cybershop', 'freegameplay']));
 

@@ -1,6 +1,7 @@
 export const worlds = [
   {
     slug: 'cybersecurity',
+    environment: 'fortress',
     number: '01',
     title: 'Cybersecurity',
     short: 'Protect the systems that matter.',
@@ -19,6 +20,7 @@ export const worlds = [
   },
   {
     slug: 'infrastructure',
+    environment: 'network',
     number: '02',
     title: 'Infrastructure',
     short: 'Build the foundation everything depends on.',
@@ -37,6 +39,7 @@ export const worlds = [
   },
   {
     slug: 'software',
+    environment: 'machine',
     number: '03',
     title: 'Software',
     short: 'Turn useful ideas into working tools.',
@@ -55,6 +58,7 @@ export const worlds = [
   },
   {
     slug: 'ai-automation',
+    environment: 'neural',
     number: '04',
     title: 'AI & Automation',
     short: 'Give repetitive work a smarter path.',
@@ -73,6 +77,7 @@ export const worlds = [
   },
   {
     slug: 'digital-business',
+    environment: 'city',
     number: '05',
     title: 'Digital Business',
     short: 'Shape the systems behind better operations.',
@@ -91,6 +96,7 @@ export const worlds = [
   },
   {
     slug: 'education',
+    environment: 'library',
     number: '06',
     title: 'Education',
     short: 'Make technology easier to understand and use.',
@@ -109,6 +115,7 @@ export const worlds = [
   },
   {
     slug: 'data-analytics',
+    environment: 'constellation',
     number: '07',
     title: 'Data & Analytics',
     short: 'Turn raw information into clearer decisions.',
@@ -127,6 +134,7 @@ export const worlds = [
   },
   {
     slug: 'digital-presence',
+    environment: 'portal',
     number: '08',
     title: 'Digital Presence',
     short: 'Make a digital front door worth opening.',

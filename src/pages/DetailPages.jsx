@@ -8,6 +8,7 @@ import ProjectIntake from '../components/ProjectIntake.jsx';
 import { NetworkForge, WarRoom, WorkflowEngine, TeachingLab, DataConstellation } from '../components/LabExperiences.jsx';
 import ArchitectureExplorer from '../components/ArchitectureExplorer.jsx';
 import WorldExperience from '../components/WorldExperiences.jsx';
+import WorldEnvironment from '../components/WorldEnvironment.jsx';
 import { siteConfig } from '../siteConfig.js';
 
 function RouteIntro({ eyebrow, title, description, icon = 'Orbit', back = true, tone = '' }) {
@@ -29,17 +30,19 @@ export function WorldPage() {
   const relatedProjects = projects.filter((project) => project.world === world.slug);
 
   return (
-    <main className="inner-page world-detail" style={{ '--world-color': world.color }}>
+    <main className={`inner-page world-detail world-detail--${world.slug}`} style={{ '--world-color': world.color }}>
       <div className="world-detail-backdrop" aria-hidden="true" />
       <div className="detail-container">
-        <Link to="/#worlds" className="back-to-orbit"><Icon name="ArrowLeft" size={15} /> Return to the orbital map</Link>
+        <Link to="/worlds" className="back-to-orbit"><Icon name="ArrowLeft" size={15} /> All capability worlds</Link>
         <header className="world-detail-hero">
-          <div className="world-detail-emblem"><span>{world.number}</span><Icon name={world.icon} size={26} /></div>
-          <div className="micro-label">WORLD {world.number} / 08 <span className="micro-divider">•</span> CAPABILITY, PROOF, POSSIBILITY</div>
-          <h1>{world.title}</h1>
-          <p className="world-detail-short">{world.short}</p>
-          <p className="world-detail-description">{world.description}</p>
-          <div className="world-detail-actions"><Link className="button-primary" to={`/start-a-project?service=${world.slug}`}>Explore a project <Icon name="ArrowUpRight" size={16} /></Link><a className="button-quiet" href="#capabilities">Explore this world <Icon name="ArrowDown" size={15} /></a></div>
+          <div className="world-detail-copy">
+            <div className="world-detail-kicker"><span>{world.number}</span><i /><span>WORLD / 08</span><i /><span>FIELD GUIDE</span></div>
+            <h1>{world.title}</h1>
+            <p className="world-detail-short">{world.short}</p>
+            <p className="world-detail-description">{world.description}</p>
+            <div className="world-detail-actions"><Link className="button-primary" to={`/start-a-project?service=${world.slug}`}>Start a project brief <Icon name="ArrowUpRight" size={16} /></Link><a className="button-outline" href="#capabilities">Explore capabilities <Icon name="ArrowDown" size={15} /></a></div>
+          </div>
+          <WorldEnvironment world={world} />
         </header>
 
         <section className="world-mission-card">

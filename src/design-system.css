@@ -1,7 +1,7 @@
 /*
   PHASE 1 — CELESTIAL OBSERVATORY
   A restrained visual foundation: celestial depth, warm stellar light, and editorial clarity.
-  Keep this layer token-led; route-specific art direction is reviewed before later phases.
+  Route-specific Phase 3 world environments live in world-environments.css.
 */
 :root {
   --bg: #070a14;

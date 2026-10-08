@@ -29,8 +29,9 @@ npm run preview
 
 - An animated orbital map with Ellis at the core and eight linked capability worlds, plus a conventional, shareable `/worlds` directory.
 - Eight responsive world pages, each with capabilities, service directions, proof guidance, relevant tools, an interactive system view, and a project pathway.
+- Phase 3 world environments: eight distinct SVG field studies—security citadel, network topology, software layers, neural workflow, digital-business skyline, learning folio, data constellation, and digital-presence portal—paired with the existing world-specific interactions rather than a recolored card template.
 - A skippable five-beat opening—Void → First Light → Identity → Ignition → Universe—with reduced-motion support, navigable world symbols and conventional links at readiness, no visit tracking, and footer replay.
-- A Phase 1 “Celestial Observatory” foundation: indigo space, warm stellar light, restrained nebula accents, a sacred-geometry sun sigil, planetary world glyphs, editorial typography, shared tokens, and a distinct pearl-dawn Ascension theme. Later page art direction is paused for owner review.
+- The approved “Celestial Observatory” direction: deep-space indigo, warm stellar light, restrained nebula accents, a sacred-geometry sun sigil, planetary world glyphs, editorial typography, shared tokens, and a distinct pearl-dawn Ascension theme. Phase 3 now carries this language into each capability world through different silhouettes, diagrams, and atmospheres.
 - Project profiles for TechPros, Cyber Elias Academy, CyberShop, and FreeGameplay. They are visibly marked **Profile in progress** until exact role, implementation status, live URLs, and outcomes are confirmed.
 - Interactive demonstrations: Network Forge, a multi-step incident-response War Room, workflow automation examples, a teaching micro-lesson, an illustrative data chart, a business discovery diagnostic, customer journey map, and conceptual software architecture view.
 - Four-lens Project Architecture Explorer (User, Business, Architect, Technical) with unverified implementation details explicitly withheld.
@@ -62,8 +63,9 @@ The values above are placeholders: replace them only with owner-approved public 
 - `src/pages/DirectoryPages.jsx` — the worlds directory and configuration-backed contact page.
 - `src/components/ArchitectureExplorer.jsx` — four-lens, evidence-conscious project system view.
 - `src/components/WorldExperiences.jsx` and `src/components/LabExperiences.jsx` — interactive world and Lab demonstrations.
-- `src/design-system.css` — Phase 1 shared tokens and the current opening-sequence art direction.
-- `tests/content.test.js` and `tests/pages-render.test.js` — built-in Node checks for content integrity, opening phases, contact configuration, and semantic route rendering.
+- `src/components/WorldEnvironment.jsx` and `src/world-environments.css` — data-mapped, decorative SVG field studies and responsive Phase 3 world art direction.
+- `src/design-system.css` — shared tokens and the opening-sequence art direction.
+- `tests/content.test.js` and `tests/pages-render.test.js` — built-in Node checks for content integrity, distinct world environments, opening phases, contact configuration, and semantic route rendering.
 - `public/_redirects` — SPA fallback for supported static hosts.
 - `docs/PRODUCT_BLUEPRINT.md` — full product and application specification, roadmap, and launch gates.
 
